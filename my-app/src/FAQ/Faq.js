@@ -11,11 +11,10 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import RulesAgreement from "../Asset/RulesAgreement.pdf";
-import liabilityWaiver from "../Asset/liabilityWaiver.pdf";
-import NACVideo from "../Asset/videoNac.mp4";
-import ReactPlayer from "react-player";
 import React, { useEffect } from "react";
+import ReactPlayer from "react-player";
+import liabilityWaiver from "../Asset/liabilityWaiver.pdf";
+import RulesAgreement from "../Asset/RulesAgreement.pdf";
 
 export default function Faq({ open, handleClose }) {
   const [displayVideo, setDiplayVideo] = React.useState(false);
@@ -91,7 +90,9 @@ export default function Faq({ open, handleClose }) {
 
                 <div style={{ width: "100%" }}>
                   <ReactPlayer
-                    url={NACVideo}
+                    url={
+                      "https://drive.google.com/uc?id=10aPqeStiivDWMQtXMh1gX2LRlY8YNUEO"
+                    }
                     width="100%"
                     height="100%"
                     controls={true}

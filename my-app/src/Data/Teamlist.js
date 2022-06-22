@@ -304,6 +304,7 @@ export const TeamList = [
   },
 ];
 
-//https://drive.google.com/uc?id=1sYr_oEBHPLy25B-Ut0ID7yUGIZIaK4zr
+//https://drive.google.com/uc?id=10aPqeStiivDWMQtXMh1gX2LRlY8YNUEO
 
 //https://drive.google.com/file/d/1usXB4YNzsDA4C5CYYpdsvsKL5-bF4zvw/view?usp=sharing
+//https://drive.google.com/file/d/10aPqeStiivDWMQtXMh1gX2LRlY8YNUEO/view?usp=sharing
