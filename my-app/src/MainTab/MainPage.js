@@ -1,6 +1,6 @@
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
-import { CardMedia, MenuList, Paper } from "@mui/material";
+import { CardMedia, MenuList } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,20 +11,24 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import Logo from "../Asset/logo.png";
 
-const pages = ["Home", "Roseter", "NAC", "Live Score"];
+const pages = [
+  { label: "Home", path: "/" },
+  { label: "Schedule", path: "/schedule" },
+  { label: "Rules", path: "/rules" },
+  { label: "FAQ", path: "/faq" },
+];
 
 const MainPage = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
+    this.props.history.push(page.path);
   };
 
   return (
@@ -132,7 +136,7 @@ const MainPage = () => {
                         fontFamily: "Questrial",
                       }}
                     >
-                      {page}
+                      {page.label}
                     </Typography>
                   </MenuItem>
                 ))}
@@ -170,7 +174,7 @@ const MainPage = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={handleCloseNavMenu(page)}
                 sx={{
                   my: 2,
                   color: "white",
@@ -180,7 +184,7 @@ const MainPage = () => {
                   fontFamily: "Questrial",
                 }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
           </Box>

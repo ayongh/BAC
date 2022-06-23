@@ -89,14 +89,15 @@ export default function Faq({ open, handleClose }) {
                 </Alert>
 
                 <div style={{ width: "100%" }}>
-                  <ReactPlayer
-                    url={
-                      "https://drive.google.com/uc?id=10aPqeStiivDWMQtXMh1gX2LRlY8YNUEO"
-                    }
-                    width="100%"
-                    height="100%"
-                    controls={true}
-                  />
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/LQ8uO4pd9Z4"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </Grid>
             )}
