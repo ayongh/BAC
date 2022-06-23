@@ -13,15 +13,15 @@ mongoose.connect(
   "mongodb+srv://nac2022:Xz6I5oHQwPucFteM@cluster0.rsmds.mongodb.net/nacDB?retryWrites=true&w=majority"
 );
 
-if (process.env.PROD) {
-  app.use(express.static(path.join(__dirname, "./my-app/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
-  });
-}
-
 //require route
 app.use("/api", require("./routes"));
+
+if (process.env.PROD) {
+  app.use(express.static(path.join(__dirname + "/my-app/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/my-app/build/index.html"));
+  });
+}
 
 const port = process.env.PORT || 3001;
 app.listen(port, function () {

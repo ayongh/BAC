@@ -3,14 +3,7 @@ const Team = require("./models/teamModel");
 const GroupStage = require("./models/groupStageModal");
 const router = express.Router();
 
-router.route("/create").post((req, res) => {
-  // Validate request
-  /*   if (!req.body.content) {
-    return res.status(400).send({
-      message: "Note content can not be empty",
-    });
-  } */
-
+/* router.route("/create").post((req, res) => {
   //Get dat from body
   const newTeam = new Team({ ...req.body });
 
@@ -25,7 +18,7 @@ router.route("/create").post((req, res) => {
         message: err.message || "Some error occurred while creating the team.",
       });
     });
-});
+}); */
 
 router.route("/teams").get((req, res) => {
   Team.find()
@@ -65,7 +58,7 @@ router.route("/team/:teamID").get((req, res) => {
     });
 });
 
-router.route("/team/:teamID").put((req, res) => {
+/* router.route("/team/:teamID").put((req, res) => {
   Team.updateOne(
     { id: req.params.teamID },
     {
@@ -82,15 +75,9 @@ router.route("/team/:teamID").put((req, res) => {
       res.send({ sucess: true, data: team });
     }
   );
-});
+}); */
 
-router.route("/create/Groupstage").post((req, res) => {
-  // Validate request
-  /*   if (!req.body.content) {
-    return res.status(400).send({
-      message: "Note content can not be empty",
-    });
-  } */
+/* router.route("/create/Groupstage").post((req, res) => {
   const newGroupStage = new GroupStage({ ...req.body });
 
   newGroupStage
@@ -105,7 +92,7 @@ router.route("/create/Groupstage").post((req, res) => {
           err.message || "Some error occurred while creating the group stage.",
       });
     });
-});
+}); */
 
 router.route("/groupStage").get((req, res) => {
   GroupStage.find()
