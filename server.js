@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -12,12 +13,15 @@ mongoose.connect(
   "mongodb+srv://nac2022:Xz6I5oHQwPucFteM@cluster0.rsmds.mongodb.net/nacDB?retryWrites=true&w=majority"
 );
 
-app.use(express.static(path.join(__dirname + "/public")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/index.html"));
-});
+if (process.env.PROD) {
+  app.use(express.static(path.join(__dirname, "./my-app/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
+  });
+}
+
 //require route
-app.use("/", require("./routes"));
+app.use("/api", require("./routes"));
 
 const port = process.env.PORT || 3001;
 app.listen(port, function () {
