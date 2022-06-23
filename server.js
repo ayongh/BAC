@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 
 app.use(cors());
 app.use(express.json());
@@ -11,10 +12,15 @@ mongoose.connect(
   "mongodb+srv://nac2022:Xz6I5oHQwPucFteM@cluster0.rsmds.mongodb.net/nacDB?retryWrites=true&w=majority"
 );
 
+app.use(express.static(path.join(__dirname + "/public")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/index.html"));
+});
 //require route
 app.use("/", require("./routes"));
 
-app.listen(3001, function () {
+const port = process.env.PORT || 3001;
+app.listen(port, function () {
   console.log("express server is running on port 3001");
 });
 
